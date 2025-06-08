@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paged.js Polyfill demo</title>
+
+    <script src="js/paged.polyfill.js"></script>
+
+    <style>
+        /* Page layout */
+        @page {
+            size: 8.5in 11in;
+            margin: 1in;
+        }
+
+        /* Page numbers */
+        @page {
+            @bottom-right {
+                content: "Page " counter(page);
+            }
+        }
+
+        h1 {
+            break-before: page;
+        }
+
+        h1:first-of-type {
+            break-before: avoid-page;
+        }
+
+        /* Skeuomorphic paper effect */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .pagedjs_page {
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+
+    </style>
     
 </head>
 <body>
-
+    <div class="pagedjs_pages">
            
             <div class="sample-content">
                 
@@ -99,6 +136,6 @@
                 <p class="breakable pgntr-print-only">This text is visible in print only, part of the ink layer's flow. (Demonstrates .pgntr-print-only class)</p>
             </div>
         </div>
-
+    </div>
 </body>
 </html>
