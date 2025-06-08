@@ -55,6 +55,25 @@
                 display: none;
             }
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            break-inside: auto;
+        }
+        tr {
+            break-inside: avoid;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
     
 </head>
@@ -78,14 +97,14 @@
                     <li><strong>Paper Layer (<code class="language-html">.pgntr-paper-layer</code>)</strong>:
                     This class is typically applied to the main container that represents a "page" or a printable area. It defines the overall dimensions, page-insets, and background for each page.
                     <p>Example:</p>
-                    <p>&lt;div class="pgntr-paper-layer"&gt;<br>
-                    &lt;!-- Page content goes here --&gt; <br>
-                    &lt;/div&gt;</p>
+                    <p><div class="pgntr-paper-layer"><br>
+                    <!-- Page content goes here --> <br>
+                    </div></p>
                     </li>
                     <li><strong>Ink Layer (<code class="language-html">.pgntr-ink-layer</code>)</strong>:
                     This class is applied to content within the paper layer. It often defines padding and other styles that affect the "ink" (content) area within the page page-insets.
                     <p>Example:</p>
-                    <pre><code class="language-html">&lt;div class="pgntr-paper-layer"&gt; &lt;/div&gt;</code></pre>
+                    <pre><code class="language-html"><div class="pgntr-paper-layer"> </div></code></pre>
                     </li>
                     <li><strong>Console Layer (<code class="language-html">.pgntr-console-layer</code>)</strong>:
                     This layer is typically used for elements that should appear outside the main paginated content, often for debugging or meta-information. Its exact styling and purpose depend on the specific implementation.
@@ -97,12 +116,12 @@
                     <li><strong>Print Property (<code class="language-html">.pgntr-print-only</code>)</strong>:
                     Elements with this class will only be visible when the document is printed (or in print preview mode). They are hidden in screen view.
                     <p>Example:</p>
-                    <pre><code class="language-html">&lt;p class="pgntr-print-only"&gt;This text only appears on printed pages.&lt;/p&gt;</code></pre>
+                    <pre><code class="language-html"><p class="pgntr-print-only">This text only appears on printed pages.</p></code></pre>
                     </li>                    
                     <li><strong>Page Break Spacer (<code class="language-html">.pgntr-page-break-spacer</code>)</strong>:
                     <p>This class is used internally by the Paginator engine to insert visual or structural spacing where page breaks occur. By default, it's designed to be non-visible, but <code class="language-html">pgntr-debug.css</code> can be used to visualize it.</p>
                     <p>Example (inserted by Paginator.js):</p>
-                    <pre><code class="language-html">&lt;div class="pgntr-page-break-spacer"&gt;&lt;/div&gt;</code></pre>
+                    <pre><code class="language-html"><div class="pgntr-page-break-spacer"></div></code></pre>
                     </li>
                 </ul>
                 <p>By combining these classes and understanding their purpose, you can effectively structure your HTML content for pagination using the Paginator library.</p>
@@ -112,13 +131,77 @@
                 <p><strong>To activate debugging visuals:</strong></p>
                 <ol>
                     <li>Ensure <code class="language-html">pgntr-debug.css</code> is present in the <code class="language-html">library/styles/</code> directory.</li>
-                    <li>Link this stylesheet in your HTML file's <code class="language-html">&lt;head&gt;</code> section. For example, if your HTML file is in <code class="language-html">src/demo/</code>, the path would be:
-                    <pre><code class="language-html">&lt;link rel="stylesheet" href="../../library/styles/pgntr-debug.css"&gt;</code></pre>
+                    <li>Link this stylesheet in your HTML file's <code class="language-html"><head></code> section. For example, if your HTML file is in <code class="language-html">src/demo/</code>, the path would be:
+                    <pre><code class="language-html"><link rel="stylesheet" href="../../library/styles/pgntr-debug.css"></code></pre>
                     </li>
                 </ol>
                 <p>When <code class="language-html">pgntr-debug.css</code> is imported, elements with the class <code class="language-html">pgntr-page-break-spacer</code> will have a visible dashed red border, a light red background, and a minimum height, making them easy to identify and inspect during development.</p>
                 <p><strong>To deactivate debugging visuals:</strong></p>
-                <p>Simply remove or comment out the <code class="language-html">&lt;link&gt;</code> tag for <code class="language-html">pgntr-debug.css</code> from your HTML file. The <code class="language-html">pgntr-page-break-spacer</code> elements will revert to their default, non-visible state as defined by the core Paginator styles.</p>
+                <p>Simply remove or comment out the <code class="language-html"><link></code> tag for <code class="language-html">pgntr-debug.css</code> from your HTML file. The <code class="language-html">pgntr-page-break-spacer</code> elements will revert to their default, non-visible state as defined by the core Paginator styles.</p>
+                
+                <h2>Table Example</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Number</th>
+                            <th>Date</th>
+                            <th>Document Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2023-01-15</td>
+                            <td>Initial Project Proposal</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2023-02-20</td>
+                            <td>Requirement Specification</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2023-03-10</td>
+                            <td>Design Document v1.0</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2023-04-05</td>
+                            <td>API Specification</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>2023-05-12</td>
+                            <td>User Manual Draft</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>2023-06-18</td>
+                            <td>Test Plan</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>2023-07-22</td>
+                            <td>Alpha Release Notes</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>2023-08-30</td>
+                            <td>Beta Release Notes</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>2023-09-15</td>
+                            <td>Final Release Notes</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>2023-10-01</td>
+                            <td>Post-mortem Analysis</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <h1>The Art of Skeuomorphic Design</h1>
                 <p>This content resides on the <code class="language-html">.pgntr-ink-layer</code>. The page insets (<code class="language-html">--pgntr-page-inset</code>) are applied as padding to this ink layer, defining the actual readable area. The <code class="language-html">.pgntr-paper-layer</code> beneath simply displays the visual "pages" (<code class="language-html">.pgntr-page-card</code> elements) and does not contain this text. The entire document now scrolls with a single scrollbar on the body.</p>
                 <p class="placeholder-text">Skeuomorphism, in user interface design, is a concept where interface objects mimic their real-world counterparts in how they appear and/or how the user can interact with them. A well-known example is the recycle bin icon used for deleting files, which visually resembles a physical trash can. This approach aims to make interfaces more intuitive by leveraging users' existing knowledge of physical objects.</p>
